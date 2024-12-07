@@ -2,6 +2,8 @@
 
 The **RBAC Admin Panel UI** is a feature-rich platform designed to streamline Role-Based Access Control (RBAC) management, empowering administrators to securely manage users, roles, and permissions. Built with modern technologies, it ensures a seamless user experience while maintaining high levels of security and efficiency.
 
+---
+
 ## **Table of Contents** 📚
 
 ### **🔑 Key Features**
@@ -27,6 +29,12 @@ The **RBAC Admin Panel UI** is a feature-rich platform designed to streamline Ro
 - Install Dependencies
 - Run Development Server
 
+### **📽️ Video Tour**
+- Explore Features via Demo Video
+
+### **📸 Website Snapshots**
+- Landing Page, User List, and Role List Previews
+
 ### **🤝 Contributing**
 - How to Contribute
 
@@ -38,8 +46,8 @@ The **RBAC Admin Panel UI** is a feature-rich platform designed to streamline Ro
 ## **Pre-Filled Test Credentials** 🧑‍💻
 For demonstration purposes, the app is pre-filled with test credentials for quick access:
 
-- **Username**: admin@rbac.com
-- **Password**: admin123
+- **Username**: admin@rbac.com  
+- **Password**: admin123  
 
 Use these credentials to explore the features and functionality of the application.
 
@@ -66,13 +74,39 @@ The RBAC Admin Panel provides comprehensive functionality for managing users. Ke
   [Reference: Aeternity UI Wavy Background](https://ui.aceternity.com/components/wavy-background)
 - **Framer Motion**: Smooth and interactive transitions for various components, enhancing the user experience.
 
+---
+
+## **🎥 Website Video Tour**
+Explore the full functionality and features of the RBAC Admin Panel through this demo video:  
+[**Watch the Video Tour**](https://github.com/kira-03/RBAC-Admin-Panel-UI/blob/main/Website%20Tour.mp4)
+
+---
+
+## **📸 Website Snapshots**
+Take a look at the sleek and responsive UI with these previews:
+
+### **Landing Page**
+![Landing Page](https://github.com/kira-03/RBAC-Admin-Panel-UI/blob/main/Landing%20Page.png)
+
+### **Users List**
+![Users List](https://github.com/kira-03/RBAC-Admin-Panel-UI/blob/main/Users%20List.png)
+
+### **Roles List**
+![Roles List](https://github.com/kira-03/RBAC-Admin-Panel-UI/blob/main/Roles%20List.png)
+
+---
+
 ## **Design & Aesthetics** 🎨
 - Built using **Tailwind CSS** for a consistent, modern design that is both lightweight and responsive.
 - **Framer Motion** provides elegant animations and transitions to create a visually pleasing and interactive UI.
 - The **Aeternity UI Wavy Background** adds a unique touch, providing a futuristic and dynamic feel.
 
+---
+
 ## **Responsiveness** 📱
 The RBAC Admin Panel UI is fully responsive, ensuring that users have a seamless experience across all screen sizes. With Tailwind CSS's utility-first approach, the UI adapts fluidly to desktop, tablet, and mobile devices.
+
+---
 
 ## **Default Roles and Permissions** 🛡️
 
@@ -90,8 +124,6 @@ As part of the design for this RBAC system, creative roles and permissions have 
 - **SOC Analyst**: Focuses on monitoring threats and incident responses, with access to the SOC and services modules.
 - **Cloud Security Specialist**: Responsible for securing cloud infrastructure, with permissions limited to the cloud module.
 - **Client Manager**: Manages client-related operations, with access to the clients module.
-
-These roles are tailored for a security-centric environment, designed to offer granular control while maintaining robust management capabilities. They allow administrators to effectively assign specific tasks to relevant personnel based on their roles.
 
 ---
 
@@ -113,8 +145,12 @@ These roles are tailored for a security-centric environment, designed to offer g
     npm start
     ```
 
+---
+
 ## **Contributing** 🤝
 Contributions to the project are welcome! Feel free to fork the repository, submit issues, and create pull requests to enhance this project. Please adhere to the code of conduct and follow the guidelines for contributing.
+
+---
 
 ## **Contact** 📧
 For any questions or clarification, feel free to reach out to me at:
