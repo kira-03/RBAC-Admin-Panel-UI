@@ -3,7 +3,7 @@ import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
 import { Shield } from "lucide-react";
-import WavyBackground from '../ui/wavy-background'; 
+import WavyBackground from '../ui/wavy-background';
 
 const ErrorMessage = ({ message }: { message: string }) => (
   <p className="text-red-500 text-sm mb-4 text-center">{message}</p>
@@ -64,9 +64,9 @@ const SignInForm = ({
 
 const SignInPage = () => {
   const navigate = useNavigate();
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [error, setError] = useState("");
+  const [email, setEmail] = useState<string>(""); // default is empty string
+  const [password, setPassword] = useState<string>(""); // default is empty string
+  const [error, setError] = useState<string>("");
 
   // Pre-set a sample email and password in sessionStorage for testing
   useEffect(() => {
@@ -74,6 +74,10 @@ const SignInPage = () => {
       sessionStorage.setItem("email", "admin@rbac.com");
       sessionStorage.setItem("password", "admin123");
     }
+
+    // Set the state to the stored email and password
+    setEmail(sessionStorage.getItem("email") || "");
+    setPassword(sessionStorage.getItem("password") || "");
   }, []);
 
   const handleSignIn = () => {
