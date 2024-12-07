@@ -4,20 +4,42 @@ The **RBAC Admin Panel UI** is a feature-rich platform designed to streamline Ro
 
 ## **Table of Contents** 📚
 
-- Key Features
-  - User Management
-  - Role Management
-  - Dynamic Permissions
-  - Futuristic UI
-- Design & Aesthetics
-- Responsiveness
-- Default Roles and Permissions
-  - Default Permissions
-  - Default Roles
-- Installation & Setup
-- Future Enhancements
-- Contributing
-- Contact
+### **🔑 Key Features**
+- **User Management**
+- **Role Management**
+- **Dynamic Permissions**
+- **Futuristic UI**
+
+### **🎨 Design & Aesthetics**
+- Modern Design
+- Tailwind CSS
+- Framer Motion Animations
+
+### **📱 Responsiveness**
+- Fully Responsive Layout
+
+### **🛡️ Default Roles and Permissions**
+- **Default Permissions**
+- **Default Roles**
+
+### **⚙️ Installation & Setup**
+- Clone the Repository
+- Install Dependencies
+- Run Development Server
+- Build for Production
+
+### **🔮 Future Enhancements**
+- MFA Integration
+- Third-Party Auth
+- Auditing Features
+
+### **🤝 Contributing**
+- How to Contribute
+
+### **📧 Contact**
+- Email & Support
+
+---
 
 ## **Key Features** 🌟
 
