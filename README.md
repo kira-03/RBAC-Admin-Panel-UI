@@ -27,11 +27,6 @@ The **RBAC Admin Panel UI** is a feature-rich platform designed to streamline Ro
 - Install Dependencies
 - Run Development Server
 
-### **🔮 Future Enhancements**
-- MFA Integration
-- Third-Party Auth
-- Auditing Features
-
 ### **🤝 Contributing**
 - How to Contribute
 
@@ -117,11 +112,6 @@ These roles are tailored for a security-centric environment, designed to offer g
     ```bash
     npm start
     ```
-
-## **Future Enhancements** 🔮
-- Integration with third-party authentication systems.
-- Implementation of Multi-Factor Authentication (MFA).
-- Advanced auditing and logging features for better tracking of user activities.
 
 ## **Contributing** 🤝
 Contributions to the project are welcome! Feel free to fork the repository, submit issues, and create pull requests to enhance this project. Please adhere to the code of conduct and follow the guidelines for contributing.
