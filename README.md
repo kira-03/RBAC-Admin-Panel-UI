@@ -49,6 +49,7 @@ Take a look at the sleek and responsive UI with these previews:
 
 ### **Landing Page**
 ![Landing Page](https://github.com/kira-03/RBAC-Admin-Panel-UI/blob/main/Landing%20Page.png)
+"The futuristic waves on this background look dynamic on the website, but here in the image, they won't move. Try the app to see it come alive!"
 
 ### **Users List**
 ![Users List](https://github.com/kira-03/RBAC-Admin-Panel-UI/blob/main/Users%20List.png)
