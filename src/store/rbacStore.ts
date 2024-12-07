@@ -53,10 +53,10 @@ const defaultRoles: Role[] = [
 
 // Default users, including a user for the Ultimate Admin
 const defaultUsers: User[] = [
-  { id: '1', name: 'John Doe', email: 'john.doe@vrvsecurity.com', roleId: '1', status: 'active', createdAt: new Date().toISOString() },
-  { id: '2', name: 'Jane Smith', email: 'jane.smith@vrvsecurity.com', roleId: '2', status: 'active', createdAt: new Date().toISOString() },
-  { id: '3', name: 'Michael Brown', email: 'michael.brown@vrvsecurity.com', roleId: '3', status: 'inactive', createdAt: new Date().toISOString() },
-  { id: '4', name: 'Emily Davis', email: 'emily.davis@vrvsecurity.com', roleId: '4', status: 'active', createdAt: new Date().toISOString() },
+  { id: '1', name: 'Guruprasath', email: 'guruprasathmaheswaran@vrvsecurity.com', roleId: '1', status: 'active', createdAt: new Date().toISOString() },
+  { id: '2', name: 'Yoshni', email: 'yoshni_aelin@vrvsecurity.com', roleId: '2', status: 'active', createdAt: new Date().toISOString() },
+  { id: '3', name: 'Sukantha Velan', email: 'sukantha_velan.03@vrvsecurity.com', roleId: '3', status: 'inactive', createdAt: new Date().toISOString() },
+  { id: '4', name: 'Deepak', email: 'deepak_rayan@vrvsecurity.com', roleId: '4', status: 'active', createdAt: new Date().toISOString() },
 ];
 
 export const useRBACStore = create<RBACStore>((set) => ({
