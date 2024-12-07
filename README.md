@@ -4,20 +4,51 @@ The **RBAC Admin Panel UI** is a feature-rich platform designed to streamline Ro
 
 ## **Table of Contents** 📚
 
-- Key Features
-  - User Management
-  - Role Management
-  - Dynamic Permissions
-  - Futuristic UI
-- Design & Aesthetics
-- Responsiveness
-- Default Roles and Permissions
-  - Default Permissions
-  - Default Roles
-- Installation & Setup
-- Future Enhancements
-- Contributing
-- Contact
+### **🔑 Key Features**
+- **User Management**
+- **Role Management**
+- **Dynamic Permissions**
+- **Futuristic UI**
+
+### **🎨 Design & Aesthetics**
+- Modern Design
+- Tailwind CSS
+- Framer Motion Animations
+
+### **📱 Responsiveness**
+- Fully Responsive Layout
+
+### **🛡️ Default Roles and Permissions**
+- **Default Permissions**
+- **Default Roles**
+
+### **⚙️ Installation & Setup**
+- Clone the Repository
+- Install Dependencies
+- Run Development Server
+
+### **🔮 Future Enhancements**
+- MFA Integration
+- Third-Party Auth
+- Auditing Features
+
+### **🤝 Contributing**
+- How to Contribute
+
+### **📧 Contact**
+- Email & Support
+
+---
+
+## **Pre-Filled Test Credentials** 🧑‍💻
+For demonstration purposes, the app is pre-filled with test credentials for quick access:
+
+- **Username**: admin@rbac.com
+- **Password**: admin123
+
+Use these credentials to explore the features and functionality of the application.
+
+---
 
 ## **Key Features** 🌟
 
@@ -51,18 +82,23 @@ The RBAC Admin Panel UI is fully responsive, ensuring that users have a seamless
 ## **Default Roles and Permissions** 🛡️
 
 ### **Default Permissions** 🔓
-The system comes with pre-configured permissions that are crucial for managing a secure environment:
+As part of the design for this RBAC system, creative roles and permissions have been implemented to cater to a security-focused environment. Below are the default roles and their associated permissions:
+
 - **Perform VAPT**: Conduct Vulnerability Assessment and Penetration Testing (Module: services).
-- **Monitor Threats**: Real-time monitoring and response to threats (Module: SOC).
-- **Access Cloud Data**: Secure access to cloud infrastructure (Module: cloud).
-- **Manage Clients**: View and manage client information (Module: clients).
+- **Monitor Threats**: Monitor and respond to threats in real-time (Module: SOC).
+- **Access Cloud Data**: Access and secure cloud infrastructure (Module: cloud).
+- **Manage Clients**: View and update client information (Module: clients).
 - **Manage Users**: Add, edit, or delete users, and assign roles (Module: users).
 
 ### **Default Roles** 🧑‍💻
 - **Cybersecurity Admin**: Full control over all modules, roles, permissions, and users.
-- **SOC Analyst**: Monitors and responds to security threats.
-- **Cloud Security Specialist**: Secures cloud-based infrastructures.
-- **Client Manager**: Manages client-related operations and data.
+- **SOC Analyst**: Focuses on monitoring threats and incident responses, with access to the SOC and services modules.
+- **Cloud Security Specialist**: Responsible for securing cloud infrastructure, with permissions limited to the cloud module.
+- **Client Manager**: Manages client-related operations, with access to the clients module.
+
+These roles are tailored for a security-centric environment, designed to offer granular control while maintaining robust management capabilities. They allow administrators to effectively assign specific tasks to relevant personnel based on their roles.
+
+---
 
 ## **Installation & Setup** ⚙️
 
@@ -79,22 +115,7 @@ The system comes with pre-configured permissions that are crucial for managing a
 
 3. **Start the Development Server**:
     ```bash
-    npm run dev
-    ```
-
-4. **Build for Production**:
-    ```bash
-    npm run build
-    ```
-
-5. **Preview Production Build**:
-    ```bash
-    npm run preview
-    ```
-
-6. **Deploy to GitHub Pages**:
-    ```bash
-    npm run deploy
+    npm start
     ```
 
 ## **Future Enhancements** 🔮
