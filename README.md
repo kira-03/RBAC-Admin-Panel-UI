@@ -4,7 +4,7 @@ The **RBAC Admin Panel UI** is a feature-rich platform designed to streamline Ro
 
 ## **Table of Contents** 📚
 
-- [Key Features](#keyfeatures)
+- [Key Features](#key-features)
   - [User Management](#user-management)
   - [Role Management](#role-management)
   - [Dynamic Permissions](#dynamic-permissions)
