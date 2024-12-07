@@ -5,7 +5,7 @@ import { Pencil, Trash2, Plus } from "lucide-react";
 import Modal from "../modals/Modal";
 import RoleForm from "../forms/RoleForm";
 import { Role } from "../../types/rbac";
-import { motion } from "framer-motion"; // Import motion from framer-motion
+import { motion } from "framer-motion";
 
 export default function RoleList() {
   const { roles, addRole, updateRole, deleteRole } = useRBACStore();
@@ -13,11 +13,13 @@ export default function RoleList() {
   const [editingRole, setEditingRole] = useState<Role | null>(null);
   const [deletedRoleId, setDeletedRoleId] = useState<string | null>(null);
 
+  // Handle the creation of a new role
   const handleCreateRole = (roleData: Omit<Role, "id">) => {
     addRole(roleData);
     setIsCreateModalOpen(false);
   };
 
+  // Handle updating an existing role
   const handleUpdateRole = (roleData: Omit<Role, "id">) => {
     if (editingRole) {
       updateRole(editingRole.id, roleData);
@@ -25,20 +27,21 @@ export default function RoleList() {
     }
   };
 
+  // Handle deleting a role with animation
   const handleDeleteRole = (roleId: string) => {
     setDeletedRoleId(roleId);
     setTimeout(() => {
-      deleteRole(roleId); // Wait for animation to finish before deleting
-    }, 300); // Adjust the delay to match the animation duration
+      deleteRole(roleId); 
+    }, 300); // custom delay animation
   };
 
   return (
     // Wrap the entire page in a motion.div for the entrance animation
     <motion.div
-      initial={{ opacity: 0, y: 20 }} // Starting state
-      animate={{ opacity: 1, y: 0 }} // Target state
-      exit={{ opacity: 0, y: 20 }} // Exit state (if you're using page transitions)
-      transition={{ duration: 0.5, ease: "easeOut" }} // Animation timing
+      initial={{ opacity: 0, y: 20 }} 
+      animate={{ opacity: 1, y: 0 }} 
+      exit={{ opacity: 0, y: 20 }} 
+      transition={{ duration: 0.5, ease: "easeOut" }} 
       className="p-6"
     >
       {/* Add Role Button */}

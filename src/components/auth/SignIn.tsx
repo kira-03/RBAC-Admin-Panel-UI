@@ -1,9 +1,66 @@
 "use client";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
 import { Shield } from "lucide-react";
-import WavyBackground from '../ui/wavy-background'; // Ensure correct path
+import WavyBackground from '../ui/wavy-background'; 
+
+const ErrorMessage = ({ message }: { message: string }) => (
+  <p className="text-red-500 text-sm mb-4 text-center">{message}</p>
+);
+
+const SignInForm = ({
+  email,
+  setEmail,
+  password,
+  setPassword,
+  error,
+  handleSignIn
+}: {
+  email: string;
+  setEmail: React.Dispatch<React.SetStateAction<string>>;
+  password: string;
+  setPassword: React.Dispatch<React.SetStateAction<string>>;
+  error: string;
+  handleSignIn: () => void;
+}) => (
+  <div>
+    {/* Email Input */}
+    <label className="block mb-2 text-gray-600 dark:text-gray-400">
+      Email Address
+    </label>
+    <input
+      type="email"
+      value={email}
+      onChange={(e) => setEmail(e.target.value)}
+      className="w-full p-3 border border-gray-300 dark:border-gray-600 rounded-md mb-4 text-gray-800 dark:text-gray-200 bg-white dark:bg-gray-700"
+      placeholder="admin@rbac.com"
+    />
+
+    {/* Password Input */}
+    <label className="block mb-2 text-gray-600 dark:text-gray-400">
+      Password
+    </label>
+    <input
+      type="password"
+      value={password}
+      onChange={(e) => setPassword(e.target.value)}
+      className="w-full p-3 border border-gray-300 dark:border-gray-600 rounded-md mb-4 text-gray-800 dark:text-gray-200 bg-white dark:bg-gray-700"
+      placeholder="Enter your password"
+    />
+
+    {/* Error Message */}
+    {error && <ErrorMessage message={error} />}
+
+    {/* Sign In Button */}
+    <button
+      onClick={handleSignIn}
+      className="w-full py-3 bg-blue-600 text-white rounded-md mt-4 hover:bg-blue-700 transition-colors"
+    >
+      Sign In
+    </button>
+  </div>
+);
 
 const SignInPage = () => {
   const navigate = useNavigate();
@@ -11,15 +68,17 @@ const SignInPage = () => {
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
 
-  // Pre-set a sample email and password in localStorage for testing
-  if (!localStorage.getItem("email") || !localStorage.getItem("password")) {
-    localStorage.setItem("email", "admin@rbac.com");
-    localStorage.setItem("password", "admin123");
-  }
+  // Pre-set a sample email and password in sessionStorage for testing
+  useEffect(() => {
+    if (!sessionStorage.getItem("email") || !sessionStorage.getItem("password")) {
+      sessionStorage.setItem("email", "admin@rbac.com");
+      sessionStorage.setItem("password", "admin123");
+    }
+  }, []);
 
   const handleSignIn = () => {
-    const storedEmail = localStorage.getItem("email");
-    const storedPassword = localStorage.getItem("password");
+    const storedEmail = sessionStorage.getItem("email");
+    const storedPassword = sessionStorage.getItem("password");
 
     if (email === storedEmail && password === storedPassword) {
       navigate("/dashboard");
@@ -54,42 +113,15 @@ const SignInPage = () => {
           Welcome Back! Please Sign In
         </h3>
 
-        {/* Email Input */}
-        <label className="block mb-2 text-gray-600 dark:text-gray-400">
-          Email Address
-        </label>
-        <input
-          type="email"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-          className="w-full p-3 border border-gray-300 dark:border-gray-600 rounded-md mb-4 text-gray-800 dark:text-gray-200 bg-white dark:bg-gray-700"
-          placeholder="admin@rbac.com"
+        {/* SignIn Form */}
+        <SignInForm
+          email={email}
+          setEmail={setEmail}
+          password={password}
+          setPassword={setPassword}
+          error={error}
+          handleSignIn={handleSignIn}
         />
-
-        {/* Password Input */}
-        <label className="block mb-2 text-gray-600 dark:text-gray-400">
-          Password
-        </label>
-        <input
-          type="password"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-          className="w-full p-3 border border-gray-300 dark:border-gray-600 rounded-md mb-4 text-gray-800 dark:text-gray-200 bg-white dark:bg-gray-700"
-          placeholder="Enter your password"
-        />
-
-        {/* Error Message */}
-        {error && (
-          <p className="text-red-500 text-sm mb-4 text-center">{error}</p>
-        )}
-
-        {/* Sign In Button */}
-        <button
-          onClick={handleSignIn}
-          className="w-full py-3 bg-blue-600 text-white rounded-md mt-4 hover:bg-blue-700 transition-colors"
-        >
-          Sign In
-        </button>
       </motion.div>
     </WavyBackground>
   );

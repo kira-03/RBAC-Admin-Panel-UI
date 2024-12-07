@@ -31,3 +31,26 @@ body {
     @apply rounded border-gray-300 text-blue-600 focus:ring-blue-500;
   }
 }
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  /* Tablet view */
+  body {
+    @apply text-gray-800;
+  }
+}
+
+@media (max-width: 768px) {
+  /* Mobile view */
+  body {
+    @apply text-gray-700;
+  }
+
+  input[type="text"],
+  input[type="email"],
+  input[type="password"],
+  select,
+  textarea {
+    @apply w-full;
+  }
+}

@@ -12,13 +12,21 @@ interface UserFormProps {
 
 export default function UserForm({ user, onSubmit, onCancel }: UserFormProps) {
   const { roles } = useRBACStore();
-  const [formData, setFormData] = React.useState({
+
+  // State initialization with proper type inference
+  const [formData, setFormData] = React.useState<{
+    name: string;
+    email: string;
+    roleId: string;
+    status: 'active' | 'inactive';
+  }>({
     name: user?.name || '',
     email: user?.email || '',
     roleId: user?.roleId || roles[0]?.id || '',
-    status: user?.status || 'active' as const,
+    status: user?.status || 'active',
   });
 
+  // Form submission handler
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     onSubmit(formData);
@@ -57,6 +65,7 @@ export default function UserForm({ user, onSubmit, onCancel }: UserFormProps) {
       className="bg-white p-6 rounded-lg shadow-lg max-w-lg mx-auto"
     >
       <motion.form onSubmit={handleSubmit} className="space-y-4">
+        {/* Name Input */}
         <motion.div variants={childVariants}>
           <label htmlFor="name" className="block text-sm font-medium text-gray-700">
             Name
@@ -71,6 +80,7 @@ export default function UserForm({ user, onSubmit, onCancel }: UserFormProps) {
           />
         </motion.div>
 
+        {/* Email Input */}
         <motion.div variants={childVariants}>
           <label htmlFor="email" className="block text-sm font-medium text-gray-700">
             Email
@@ -85,6 +95,7 @@ export default function UserForm({ user, onSubmit, onCancel }: UserFormProps) {
           />
         </motion.div>
 
+        {/* Role Select */}
         <motion.div variants={childVariants}>
           <label htmlFor="role" className="block text-sm font-medium text-gray-700">
             Role
@@ -103,6 +114,7 @@ export default function UserForm({ user, onSubmit, onCancel }: UserFormProps) {
           </select>
         </motion.div>
 
+        {/* Status Select */}
         <motion.div variants={childVariants}>
           <label htmlFor="status" className="block text-sm font-medium text-gray-700">
             Status
@@ -118,13 +130,12 @@ export default function UserForm({ user, onSubmit, onCancel }: UserFormProps) {
           </select>
         </motion.div>
 
+        {/* Buttons */}
         <motion.div variants={childVariants} className="flex justify-end gap-2">
           <Button type="button" variant="secondary" onClick={onCancel}>
             Cancel
           </Button>
-          <Button type="submit">
-            {user ? 'Update' : 'Create'} User
-          </Button>
+          <Button type="submit">{user ? 'Update' : 'Create'} User</Button>
         </motion.div>
       </motion.form>
     </motion.div>

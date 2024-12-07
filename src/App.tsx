@@ -14,11 +14,13 @@ import {
   Calendar 
 } from 'lucide-react';
 
+// Tabs data
 const tabs = [
   { id: 'users', label: 'Manage Users', icon: <Users className="h-5 w-5" /> },
   { id: 'roles', label: 'Manage Roles', icon: <Key className="h-5 w-5" /> },
 ];
 
+// App component
 function App() {
   const navigate = useNavigate();
   const [activeTab, setActiveTab] = useState('users');
@@ -37,6 +39,7 @@ function App() {
     return () => clearInterval(timer);
   }, [darkMode]);
 
+  // Sign out function
   const handleSignOut = () => {
     localStorage.removeItem('email');
     localStorage.removeItem('password');
@@ -70,6 +73,7 @@ function App() {
   });
 
   return (
+    // Main container
     <motion.div
       className="min-h-screen"
       style={{
@@ -81,6 +85,7 @@ function App() {
         transition: 'background-image 0.5s ease-in-out',
       }}
     >
+      
       <header className="bg-white dark:bg-gray-800 shadow-lg">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center py-6">
@@ -136,6 +141,7 @@ function App() {
         </div>
       </header>
 
+      {/* Main content */} 
       <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         <div className="flex space-x-6 mb-6">
           {tabs.map(tab => (
@@ -155,7 +161,7 @@ function App() {
             </motion.button>
           ))}
         </div>
-
+          {/* UserList and RoleList components */}
         <div className="mt-6">
           <motion.div
             className="flex flex-col"

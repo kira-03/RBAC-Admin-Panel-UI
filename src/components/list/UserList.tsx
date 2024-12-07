@@ -18,7 +18,9 @@ const ProfileIcon = () => {
   );
 };
 
+
 export default function UserList() {
+  // Fetch users, roles, add, update, delete user functions from store
   const { users, roles, addUser, updateUser, deleteUser } = useRBACStore();
   const [isCreateModalOpen, setIsCreateModalOpen] = useState(false);
   const [editingUser, setEditingUser] = useState<User | null>(null);
@@ -47,6 +49,7 @@ export default function UserList() {
     }, 300);
   };
 
+  // Custom filtering and sorting logic
   const filteredUsers = users
     .filter((user) => {
       const role = roles.find((role) => role.id === user.roleId)?.name || '';
@@ -77,6 +80,7 @@ export default function UserList() {
       }
     });
 
+  // custom function to highlight search term in text
   const highlightText = (text: string) => {
     if (!searchTerm) return text;
     const regex = new RegExp(`(${searchTerm})`, 'gi');
@@ -85,6 +89,7 @@ export default function UserList() {
 
   return (
     <>
+      {/* Header section with search, filters, and sorting options */}
       <motion.div
         className="mb-4 flex flex-col md:flex-row gap-4 items-center justify-between"
         initial={{ opacity: 0, y: -20 }}
@@ -92,6 +97,7 @@ export default function UserList() {
         exit={{ opacity: 0, y: -20 }}
         transition={{ duration: 0.5 }}
       >
+         {/* Search, role and status filters */}
         <div className="flex gap-4 items-center w-full md:w-auto">
           <div className="relative w-full">
             <Search className="absolute left-3 top-3 text-gray-400 h-5 w-5" />
@@ -125,6 +131,8 @@ export default function UserList() {
             <option value="inactive" className="font-bold text-red-700">Inactive</option>
           </select>
         </div>
+          
+          {/* Sorting options */}
         <div className="flex gap-4 items-center w-full md:w-auto">
           <select
             className="py-2 px-4 border border-gray-300 rounded-lg shadow-sm text-gray-700 focus:ring-2 focus:ring-blue-500 focus:outline-none focus:border-blue-500 hover:border-gray-400 transition duration-200 ease-in-out"
@@ -138,6 +146,7 @@ export default function UserList() {
             <option value="date_asc" className="text-gray-700">Created Date (Oldest)</option>
             <option value="date_desc" className="text-gray-700">Created Date (Newest)</option>
           </select>
+          {/* Add User Button */}
           <Button
             onClick={() => setIsCreateModalOpen(true)}
             className="flex items-center space-x-2 bg-gradient-to-r from-blue-500 to-indigo-600 text-white px-4 py-2 rounded-md shadow hover:from-blue-600 hover:to-indigo-700 transition"
@@ -147,6 +156,8 @@ export default function UserList() {
           </Button>
         </div>
       </motion.div>
+
+      {/* Table with user data */}
 
       <div className="overflow-x-auto bg-white shadow rounded-lg">
         <table className="min-w-full divide-y divide-gray-200">
@@ -211,13 +222,14 @@ export default function UserList() {
                 </div>
               </td>
 
-
+                {/* Created Date */}
                 <td className="px-6 py-4 whitespace-nowrap">
                   <div className="text-sm text-gray-500">{formatDate(user.createdAt)}</div>
                 </td>
                 <td className="px-6 py-4 text-right whitespace-nowrap">
                   <div className="flex justify-end space-x-3">
                     <div className="relative group">
+                      {/* Edit User Button */}
                       <Button
                         variant="primary"
                         size="sm"
@@ -232,7 +244,7 @@ export default function UserList() {
                         Edit User
                       </div>
                     </div>
-
+                    {/* Delete User Button */}
                     <div className="relative group">
                       <Button
                         variant="danger"
@@ -255,7 +267,7 @@ export default function UserList() {
           </tbody>
         </table>
       </div>
-
+      {/* Modal for adding and editing user */}
       <Modal
         isOpen={isCreateModalOpen || !!editingUser}
         onClose={() => {

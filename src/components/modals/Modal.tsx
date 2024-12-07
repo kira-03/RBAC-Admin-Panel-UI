@@ -8,7 +8,7 @@ interface ModalProps {
   onClose: () => void;
   title: string;
   children: React.ReactNode;
-  footer?: React.ReactNode;  // Optional footer for custom actions
+  footer?: React.ReactNode; 
 }
 
 export default function Modal({ isOpen, onClose, title, children, footer }: ModalProps) {

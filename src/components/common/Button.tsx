@@ -2,6 +2,7 @@ import React from 'react';
 import { clsx } from 'clsx';
 import { motion, MotionProps } from 'framer-motion';
 
+// Define button styles dynamically based on the variant and size props
 interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   variant?: 'primary' | 'secondary' | 'danger';
   size?: 'sm' | 'md' | 'lg';
@@ -15,6 +16,7 @@ const Button = ({
   ...props
 }: ButtonProps) => {
   return (
+    //custom button components
     <motion.button
       className={clsx(
         'inline-flex items-center justify-center rounded-md font-medium transition-colors',

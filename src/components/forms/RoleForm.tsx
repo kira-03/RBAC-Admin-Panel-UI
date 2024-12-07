@@ -26,20 +26,14 @@ export default function RoleForm({ role, onSubmit, onCancel }: RoleFormProps) {
 
   const togglePermission = (permission: typeof permissions[0]) => {
     const exists = formData.permissions.find((p) => p.id === permission.id);
-    if (exists) {
-      setFormData({
-        ...formData,
-        permissions: formData.permissions.filter((p) => p.id !== permission.id),
-      });
-    } else {
-      setFormData({
-        ...formData,
-        permissions: [...formData.permissions, permission],
-      });
-    }
+    setFormData({
+      ...formData,
+      permissions: exists
+        ? formData.permissions.filter((p) => p.id !== permission.id)
+        : [...formData.permissions, permission],
+    });
   };
 
-  // Framer Motion Variants for Animations
   const containerVariants = {
     hidden: { opacity: 0, scale: 0.8, rotate: -10 },
     visible: {
@@ -63,7 +57,6 @@ export default function RoleForm({ role, onSubmit, onCancel }: RoleFormProps) {
     visible: { opacity: 1, y: 0, transition: { type: 'spring', stiffness: 150 } },
   };
 
-  // Tooltip Animation Variants
   const tooltipVariants = {
     hidden: { opacity: 0, scale: 0.8, y: 10 },
     visible: {
@@ -83,6 +76,7 @@ export default function RoleForm({ role, onSubmit, onCancel }: RoleFormProps) {
       className="bg-white p-6 rounded-lg shadow-lg max-w-lg mx-auto"
     >
       <motion.form onSubmit={handleSubmit} className="space-y-4">
+        {/* Name Field */}
         <motion.div variants={childVariants}>
           <label htmlFor="name" className="block text-sm font-medium text-gray-700">
             Name
@@ -94,9 +88,11 @@ export default function RoleForm({ role, onSubmit, onCancel }: RoleFormProps) {
             onChange={(e) => setFormData({ ...formData, name: e.target.value })}
             className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 sm:text-sm box-border px-3 py-2"
             required
+            aria-label="Role Name"
           />
         </motion.div>
 
+        {/* Description Field */}
         <motion.div variants={childVariants}>
           <label htmlFor="description" className="block text-sm font-medium text-gray-700">
             Description
@@ -108,20 +104,20 @@ export default function RoleForm({ role, onSubmit, onCancel }: RoleFormProps) {
             className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 sm:text-sm box-border px-3 py-2"
             rows={3}
             required
+            aria-label="Role Description"
           />
         </motion.div>
 
+        {/* Permissions Field */}
         <motion.div variants={childVariants}>
-          <label className="block text-sm font-medium text-gray-700 mb-2">
-            Permissions
-          </label>
+          <label className="block text-sm font-medium text-gray-700 mb-2">Permissions</label>
           <div className="space-y-2">
             {permissions.map((permission) => (
               <div
                 key={permission.id}
                 className="flex items-center relative"
-                onMouseEnter={() => setHoveredPermission(permission.id)} // Show tooltip on hover
-                onMouseLeave={() => setHoveredPermission(null)} // Hide tooltip when hover ends
+                onMouseEnter={() => setHoveredPermission(permission.id)}
+                onMouseLeave={() => setHoveredPermission(null)}
               >
                 <motion.input
                   type="checkbox"
@@ -138,7 +134,7 @@ export default function RoleForm({ role, onSubmit, onCancel }: RoleFormProps) {
                   initial={{ backgroundColor: 'white' }}
                   whileHover={{
                     scale: 1.1,
-                    backgroundColor: 'rgb(59, 130, 246)', // On hover effect
+                    backgroundColor: 'rgb(59, 130, 246)',
                   }}
                 />
                 <span className="ml-2 text-sm text-gray-700">{permission.name}</span>
@@ -157,11 +153,14 @@ export default function RoleForm({ role, onSubmit, onCancel }: RoleFormProps) {
           </div>
         </motion.div>
 
+        {/* Action Buttons */}
         <motion.div variants={childVariants} className="flex justify-end gap-2">
-          <Button type="button" variant="secondary" onClick={onCancel}>
+          <Button type="button" variant="secondary" onClick={onCancel} aria-label="Cancel">
             Cancel
           </Button>
-          <Button type="submit">{role ? 'Update' : 'Create'} Role</Button>
+          <Button type="submit" aria-label={role ? 'Update Role' : 'Create Role'}>
+            {role ? 'Update' : 'Create'} Role
+          </Button>
         </motion.div>
       </motion.form>
     </motion.div>

@@ -3,6 +3,7 @@ import { cn } from "../../lib/utils";
 import React, { useEffect, useRef, useState } from "react";
 import { createNoise3D } from "simplex-noise";
 
+// WavyBackground component
 export const WavyBackground = ({
   children,
   className,
@@ -15,7 +16,7 @@ export const WavyBackground = ({
   waveOpacity = 0.5,
   ...props
 }: {
-  children?: React.ReactNode;  // Changed from `any` to `React.ReactNode`
+  children?: React.ReactNode; 
   className?: string;
   containerClassName?: string;
   colors?: string[];
@@ -24,7 +25,6 @@ export const WavyBackground = ({
   blur?: number;
   speed?: "slow" | "fast";
   waveOpacity?: number;
-  // Optional: You can leave this if other props are dynamic
 }) => {
   const noise = createNoise3D();
   let w: number,
@@ -32,10 +32,11 @@ export const WavyBackground = ({
     nt: number,
     i: number,
     x: number,
-    ctx: CanvasRenderingContext2D,  // Changed from `any` to `CanvasRenderingContext2D`
-    canvas: HTMLCanvasElement;      // Changed from `any` to `HTMLCanvasElement`
+    ctx: CanvasRenderingContext2D,
+    canvas: HTMLCanvasElement;
   const canvasRef = useRef<HTMLCanvasElement>(null);
 
+  {/* Function to get the speed */}
   const getSpeed = () => {
     switch (speed) {
       case "slow":
@@ -48,7 +49,6 @@ export const WavyBackground = ({
   };
 
   const init = () => {
-    // Ensure canvasRef.current is not null
     canvas = canvasRef.current!;
     ctx = canvas.getContext("2d")!;
     w = ctx.canvas.width = window.innerWidth;
@@ -78,8 +78,8 @@ export const WavyBackground = ({
       ctx.lineWidth = waveWidth || 50;
       ctx.strokeStyle = waveColors[i % waveColors.length];
       for (x = 0; x < w; x += 5) {
-        const y = noise(x / 800, 0.3 * i, nt) * 100;  // Changed `var` to `let`
-        ctx.lineTo(x, y + h * 0.5); // adjust for height, currently at 50% of the container
+        const y = noise(x / 800, 0.3 * i, nt) * 100; 
+        ctx.lineTo(x, y + h * 0.5);
       }
       ctx.stroke();
       ctx.closePath();
@@ -102,6 +102,7 @@ export const WavyBackground = ({
     };
   }, []);
 
+  {/* Check if the browser is Safari for specific functionality */}
   const [isSafari, setIsSafari] = useState(false);
   useEffect(() => {
     setIsSafari(
@@ -112,6 +113,7 @@ export const WavyBackground = ({
   }, []);
 
   return (
+    
     <div
       className={cn(
         "h-screen flex flex-col items-center justify-center",
